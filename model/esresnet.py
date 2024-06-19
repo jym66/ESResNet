@@ -409,7 +409,8 @@ class _ESResNet(ResNet):
             window=self.window,
             pad_mode='reflect',
             normalized=self.normalized,
-            onesided=True
+            onesided=True,
+            return_complex=True
         )
 
         if not self.onesided:
