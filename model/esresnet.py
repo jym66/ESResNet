@@ -474,6 +474,40 @@ class ESResNet(_ESResNet):
             lock_pretrained=lock_pretrained
         )
 
+class ESResNt(_ESResNet):
+
+    loading_func = staticmethod(tv.models.resnet50)
+
+    def __init__(self,
+                 n_fft: int = 256,
+                 hop_length: Optional[int] = None,
+                 win_length: Optional[int] = None,
+                 window: Optional[str] = None,
+                 normalized: bool = False,
+                 onesided: bool = True,
+                 spec_height: int = 224,
+                 spec_width: int = 224,
+                 num_classes: int = 1000,
+                 pretrained: bool = False,
+                 lock_pretrained: Optional[bool] = None):
+
+        super(ESResNt, self).__init__(
+            block=Bottleneck,
+            layers=[3, 4, 6, 3],
+            n_fft=n_fft,
+            hop_length=hop_length,
+            win_length=win_length,
+            window=window,
+            normalized=normalized,
+            onesided=onesided,
+            spec_height=spec_height,
+            spec_width=spec_width,
+            num_classes=num_classes,
+            pretrained=pretrained,
+            lock_pretrained=lock_pretrained
+        )
+
+
 
 class ESResNetAttention(_ESResNet, ResNetWithAttention):
 
